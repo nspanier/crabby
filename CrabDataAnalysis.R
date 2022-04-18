@@ -128,10 +128,6 @@ semPaths(model1.fit, rotation = 2, layout = "tree2", what = "std", posCol = "bla
   }
 
 
-logNumCrabs<-log10(SEMfinalCSV$NumCrabs)
-rma(logNumCrabs, SEMfinalCSV$Salinity1)
-
-cor.test(logNumCrabs, SEMfinalCSV$Salinity1, method="pearson")
 
 
 logRedoxx<-log10(abs(SEMfinalCSV$Redox1))
@@ -143,17 +139,6 @@ shapiro.test(SqRedoxx)
 ArcRedoxx<-asin(abs(SEMfinalCSV$Redox1))
 
 cor.test(lnCrabs,SEMfinalCSV$Redox1, method="spearman", exact=FALSE)
-
-
-cor.test(logNumCrabs, logN, method="pearson")
-
-shapiro.test(LogNAbsorb)
-shapiro.test(logN)
-shapiro.test(logN2)
-
-
-lnnutr
-
 
 shapiro.test(SEMfinalCSV$KDecomp1)
 logKDecomp<-log10(SEMfinalCSV$KDecomp1)
