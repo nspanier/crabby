@@ -170,3 +170,18 @@ cor.test(lnCrabs, lnProd, method="pearson")
 cor.test(lnCrabs, SEMfinalCSV$Growing2020, method="pearson")
 
 cor.test(SEMfinalCSV$Growing2020, lnKDecomp, method="pearson")
+
+
+#pneumatophore and fiddler crab correlatiom
+shapiro.test(SEMfinalCSV$PneumatophoreCount)
+lnpneu<-log(SEMfinalCSV$PneumatophoreCount)
+shapiro.test(lnpneu)
+shapiro.test(SEMfinalCSV$lnPneumatophore)
+logpneu<-sqrt(SEMfinalCSV$PneumatophoreCount)
+shapiro.test(logpneu)
+
+
+cor.test(lnCrabs,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
+cor.test(SEMfinalCSV$NumCrabs,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
+
+cor.test(lnKDecomp,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
