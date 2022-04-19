@@ -196,3 +196,5 @@ cor.test(SEMfinalCSV$Growing2020,SEMfinalCSV$Redox1, method="spearman", exact=FA
 lnpneu<-log(SEMfinalCSV$PneumatophoreCount)
 lnKDecomp<-log(SEMfinalCSV$KDecomp1)
 lnCrabs<-log(SEMfinalCSV$NumCrabs)
+
+cor.test(lnKDecomp, lnNab, method = "spearman", exact = FALSE)
