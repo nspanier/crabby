@@ -1,7 +1,7 @@
-SEMfinalCSV$NumCrabs <- scale(SEMfinalCSV$NumCrabs)
-SEMfinalCSV$PneumatophoreCount <- scale(SEMfinalCSV$PneumatophoreCount)
+SEMfinalCSV$NumCrabs <- scale(lnCrabs)
+SEMfinalCSV$PneumatophoreCount <- scale(lnpneu)
 SEMfinalCSV$Growing2020 <- scale(SEMfinalCSV$Growing2020)
-SEMfinalCSV$KDecomp1 <- scale(SEMfinalCSV$KDecomp1)
+SEMfinalCSV$KDecomp1 <- scale(lnKDecomp)
 
 
 
@@ -19,7 +19,7 @@ nrow(SEMfinalCSV)
 #create mean scores
 #Model 1 
 #Model specification
-
+?sem
 -------------------------ABGBIO------------------------
   model1<- '
         KDecomp1 ~ NumCrabs
@@ -185,3 +185,7 @@ cor.test(lnCrabs,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
 cor.test(SEMfinalCSV$NumCrabs,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
 
 cor.test(lnKDecomp,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
+
+
+
+cor.test(SEMfinalCSV$Growing2020,SEMfinalCSV$Redox1, method="spearman", exact=FALSE)
