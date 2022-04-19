@@ -1,5 +1,5 @@
 SEMfinalCSV$NumCrabs <- scale(lnCrabs)
-SEMfinalCSV$PneumatophoreCount <- scale(lnpneu)
+SEMfinalCSV$PneumatophoreCount <- scale(SEMfinalCSV$lnPneumatophore)
 SEMfinalCSV$Growing2020 <- scale(SEMfinalCSV$Growing2020)
 SEMfinalCSV$KDecomp1 <- scale(lnKDecomp)
 
@@ -31,7 +31,7 @@ nrow(SEMfinalCSV)
 model1.fit <-sem(model1,
                  data=SEMfinalCSV, 
                  meanstructure = FALSE,
-                 estimator = "MLR")
+                 estimator = "ML")
 #in summary, regression is just telling us the measure of correlation, want standardized coefficients, fit measures if the model fits
 summary(model1.fit, rsquare=TRUE, standardized = TRUE, fit.measures = TRUE)
 
@@ -180,6 +180,8 @@ shapiro.test(SEMfinalCSV$lnPneumatophore)
 logpneu<-sqrt(SEMfinalCSV$PneumatophoreCount)
 shapiro.test(logpneu)
 
+loggpneu<-log10(SEMfinalCSV$PneumatophoreCount)
+shapiro.test(loggpneu)
 
 cor.test(lnCrabs,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
 cor.test(SEMfinalCSV$NumCrabs,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALSE)
@@ -189,3 +191,8 @@ cor.test(lnKDecomp,SEMfinalCSV$PneumatophoreCount, method="spearman", exact=FALS
 
 
 cor.test(SEMfinalCSV$Growing2020,SEMfinalCSV$Redox1, method="spearman", exact=FALSE)
+
+
+lnpneu<-log(SEMfinalCSV$PneumatophoreCount)
+lnKDecomp<-log(SEMfinalCSV$KDecomp1)
+lnCrabs<-log(SEMfinalCSV$NumCrabs)
